@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gradproject.playground.mapper.TicketMapper">
+
+    <insert id="addTicket" parameterType="Ticket">
+        insert into ticket values(null,#{User_id},#{Scenic_id},#{price},#{BuyDate},#{remake})
+    </insert>
+    <delete id="deleteScenic">
+        delete from ticket where user_id=#{Uid} and scenic_id=#{Sid}
+    </delete>
+    <select id="findAll" resultType="Ticket">
+        select * from ticket
+    </select>
+    <select id="findByUserId" resultType="Ticket">
+        select * from ticket where user_id=#{UserId}
+    </select>
+    <select id="findByScenicId" resultType="Ticket">
+        select * from  ticket where scenic_id=#{ScenicId}
+    </select>
+</mapper>
